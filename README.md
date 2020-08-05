@@ -61,8 +61,7 @@ start-thriftserver.sh
 > É necessário mapear a porta **10000** para que seja possível a conexão com o servidor *Thrift*
 
 ```sql
-SELECT *
-  FROM parquet.`adl://my.azuredatalakestore.net/table/partition/0395a2d514ef-c000.snappy.parquet;
+SELECT * FROM delta.`adl://my.azuredatalakestore.net/table`;
 ```
 
 ## Build
