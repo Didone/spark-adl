@@ -1,6 +1,6 @@
 FROM debian
 LABEL maintainer="didone"
-LABEL project="GetNet"
+LABEL project="azure"
 RUN echo "Update SO"
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
