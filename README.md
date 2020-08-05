@@ -1,6 +1,14 @@
 # Azure Spark
 
+Disponível no repoistório padrão do [Docker Hub](https://hub.docker.com/r/didone/spark-adl), a imagem pode ser baixada atrés do comando abaixo:
+
+```sh
+docker pull didone/spark-adl
+```
+
 ## Build
+
+Caso queira fazer seu proprio build, execute o comando abaixo, a partir do diretório de checkout do projeto
 
 ```sh
 docker image build -t spark-adl .
@@ -19,7 +27,7 @@ AZ_TOKEN_ENDPOINT=https://login.microsoftonline.com/<your-directory-id>/oauth2/t
 Uma vez configuradas as chaves de acesso ao *cloud storage*  você pode acessar o console do Spark com o comando abaixo:
 
 ```sh
-docker run --env-file .env -it --rm -p 4040:4040 spark-adl
+docker run --env-file .env -it --rm -p 4040:4040 didone/spark-adl
 ```
 
 ```log
@@ -47,13 +55,13 @@ O console do Spark UI ficará acessível através da porta `4040` do seu *localh
 Para a execução de consultas pode ser utilizado o console `spark-sql`
 
 ```sh
-docker run --env-file .env -it --rm -p 4040:4040 spark-adl spark-sql
+docker run --env-file .env -it --rm -p 4040:4040 didone/spark-adl spark-sql
 ```
 
 Ou então inicializar o *Thrift Server* para realizar consultar através de um conector *JDBC* no endereço `jdbc:hive2://127.0.0.1:10000/default`
 
 ```sh
-docker run --env-file .env -it --rm -p 4040:4040 -p 10000:10000 spark-adl start-thriftserver.sh
+docker run --env-file .env -it --rm -p 4040:4040 -p 10000:10000 didone/spark-adl start-thriftserver.sh
 ```
 
 > É necessário mapear a porta **10000** para que seja possível a conexão com o servidor *Thrift*
