@@ -1,4 +1,4 @@
-# Azure Spark
+# Spark Azure DataLake
 
 Disponível no repoistório padrão do [Docker Hub](https://hub.docker.com/r/didone/spark-adl), a imagem pode ser baixada atrés do comando abaixo:
 
