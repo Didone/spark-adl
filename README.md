@@ -59,5 +59,7 @@ docker run --env-file .env -it --rm -p 4040:4040 -p 10000:10000 spark-adl start-
 > É necessário mapear a porta **10000** para que seja possível a conexão com o servidor *Thrift*
 
 ```sql
-select * from parquet.`adl://my.azuredatalakestore.net/table/partition/0395a2d514ef-c000.snappy.parquet`;
+SELECT *
+  FROM parquet.`adl://my.azuredatalakestore.net/table/partition/0395a2d514ef-c000.snappy.parquet`
+;
 ```
