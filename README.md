@@ -1,17 +1,9 @@
-# Spark Azure DataLake
+# Spark [Azure Data Lake Storage](https://docs.microsoft.com/pt-br/azure/data-lake-store)
 
 Disponível no repoistório padrão do [Docker Hub](https://hub.docker.com/r/didone/spark-adl), a imagem pode ser baixada atrés do comando abaixo:
 
 ```sh
 docker pull didone/spark-adl
-```
-
-## Build
-
-Caso queira fazer seu proprio build, execute o comando abaixo, a partir do diretório de checkout do projeto
-
-```sh
-docker image build -t spark-adl .
 ```
 
 ## Execute
@@ -70,4 +62,12 @@ docker run --env-file .env -it --rm -p 4040:4040 -p 10000:10000 didone/spark-adl
 SELECT *
   FROM parquet.`adl://my.azuredatalakestore.net/table/partition/0395a2d514ef-c000.snappy.parquet`
 ;
+```
+
+## Build
+
+Caso queira fazer seu proprio build, execute o comando abaixo, a partir do diretório de checkout do projeto
+
+```sh
+docker image build -t <nome-da-sua-imagem> .
 ```
