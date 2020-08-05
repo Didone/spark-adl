@@ -53,15 +53,16 @@ docker run --env-file .env -it --rm -p 4040:4040 didone/spark-adl spark-sql
 Ou então inicializar o *Thrift Server* para realizar consultar através de um conector *JDBC* no endereço `jdbc:hive2://127.0.0.1:10000/default`
 
 ```sh
-docker run --env-file .env -it --rm -p 4040:4040 -p 10000:10000 didone/spark-adl start-thriftserver.sh
+docker run --env-file .env -it --rm -p 4040:4040 -p 10000:10000 didone/spark-adl bash
+# Dentro do container
+start-thriftserver.sh
 ```
 
 > É necessário mapear a porta **10000** para que seja possível a conexão com o servidor *Thrift*
 
 ```sql
 SELECT *
-  FROM parquet.`adl://my.azuredatalakestore.net/table/partition/0395a2d514ef-c000.snappy.parquet`
-;
+  FROM parquet.`adl://my.azuredatalakestore.net/table/partition/0395a2d514ef-c000.snappy.parquet;
 ```
 
 ## Build
